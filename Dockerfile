@@ -1,7 +1,7 @@
 ARG CUDA_VERSION=10.0
 ARG PYTHON_VERSION=3.7
 # 空字符串，下载最新pytorch
-ARG TORCH_VERSION=1.1.0
+ARG TORCH_VERSION=1.0
 
 # 拉取特定版本的cuda，需要里面的nvcc
 FROM nvidia/cuda:${CUDA_VERSION}-devel
@@ -28,10 +28,10 @@ RUN conda install -y python=${PYTHON_VERSION}
 RUN conda install -y pytorch=${TORCH_VERSION} cudatoolkit=${CUDA_VERSION} -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
 
 # https://github.com/NVIDIA/apex#linux，保留cache
-RUN git clone --depth=1 https://github.com/NVIDIA/apex
+# RUN git clone --depth=1 https://github.com/NVIDIA/apex
 # RUN cd apex && pip install -v --global-option="--cpp_ext" --global-option="--cuda_ext" ./
-RUN cd apex && \
-    python setup.py bdist_wheel --cpp_ext --cuda_ext
+# RUN cd apex && \
+#     python setup.py bdist_wheel --cpp_ext --cuda_ext
 
 
 

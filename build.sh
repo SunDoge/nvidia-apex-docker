@@ -6,5 +6,6 @@ build_docker_image() {
     --build-arg PYTHON_VERSION=$2 
 }
 
-build_docker_image 10.0 3.6
-build_docker_image 10.0 3.7
+# build_docker_image 10.0 3.6
+# build_docker_image 10.0 3.7
+build_docker_image 10.1 3.7
